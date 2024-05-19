@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sora:wght@100..800&display=swap");
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    --main-color: rgb(33, 33, 33);
+    --background-image-url: var(--background-image-url);
+}
+
+/* ========================================================================= */
+/* NAVBAR                                                                    */
+/* ========================================================================= */
+.navbar {
+    width: 100%;
+    background: var(--main-color);
+    color: rgb(241, 241, 241);
+}
+
+.navbar .brand-title,
+.navbar .nav-link {
+    width: 50%;
+}
+
+.navbar a {
+    color: rgb(241, 241, 241);
+    text-decoration: none;
+}
+
+.navbar .brand-title a {
+    font-family: "Sora", sans-serif;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+.navbar .nav-link a.hover {
+    color: rgb(196, 194, 194);
+    transition: color 0.3s;
+}
+
+.navbar .nav-link a.hover:hover {
+    color: rgb(241, 241, 241);
+}
+
+.navbar .nav-link .sign-button {
+    background: rgb(241, 241, 241);
+    color: var(--main-color);
+    display: block;
+    font-size: 16px;
+    width: 7em;
+    height: 2.5em;
+    text-align: center;
+    line-height: calc(2.5 * 16px);
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.navbar .nav-link .sign-button:hover {
+    background: rgb(204, 204, 204);
+}
+/* ========================================================================= */
+/* NAVBAR                                                                    */
+/* ========================================================================= */
+
+/* ========================================================================= */
+/* HOME PAGE                                                                 */
+/* ========================================================================= */
+header {
+    background-image: url("../img/header.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+header .overlay {
+    background: rgba(32, 32, 32, 0.785);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(241, 241, 241);
+    flex-direction: column;
+}
+
+header .overlay h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+header .overlay p {
+    font-size: 1.6rem;
+}
+
+header .overlay a {
+    background: rgb(241, 241, 241);
+    color: var(--main-color);
+    display: flex;
+    font-size: 16px;
+    width: 12em;
+    height: 4em;
+    line-height: calc(4 * 16px);
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-decoration: none;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+header .overlay a:hover {
+    background: rgb(198, 198, 198);
+    transform: translateY(-10px);
+}
+
+header .overlay a i {
+    font-size: 24px;
+}
+
+.product-cover {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+.section-spacing {
+    margin-bottom: 100px;
+}
+/* ========================================================================= */
+/* HOME PAGE                                                                 */
+/* ========================================================================= */
+
+/* ========================================================================= */
+/* FOOTER                                                                    */
+/* ========================================================================= */
+footer {
+    height: 150px;
+    background: #efefef;
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+}
+/* ========================================================================= */
+/* FOOTER                                                                    */
+/* ========================================================================= */
