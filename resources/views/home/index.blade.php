@@ -104,3 +104,4 @@
         </section>
     </section>
 @endsection
+@extends('templates.footer')
