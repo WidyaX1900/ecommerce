@@ -1,5 +1,5 @@
 @extends('templates.layout')
-@section('title', 'AyoBaca - Book Online Store')
+@extends('templates.navbar')
 @section('content')
     <header id="header">
         <div class="overlay h-100">
