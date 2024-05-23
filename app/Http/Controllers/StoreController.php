@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Store;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
@@ -32,9 +34,39 @@ class StoreController extends Controller
      * @param  \App\Http\Requests\StoreStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function add(Request $request)
     {
-        //
+        $request->validate([
+            'store_name' => 'required|unique:stores,store_name',
+            'store_email' => 'required|email:rfc,dns|unique:stores,store_email',
+            'description' => 'required',
+            'storeLogo' => 'required|file|max:2048'
+        ]);
+
+        $file = $request->file('storeLogo');
+
+        if ($file != null) {
+            $extension = $file->getClientOriginalExtension();
+            $newFileName = 'ABStore' . rand() . '.' . $extension;
+            Storage::putFileAs('storeLogos', $file, $newFileName);
+
+            $insert = Store::create([
+                'uuid' => rand(),
+                'owner' => 'admin',
+                'store_name' => $request->store_name,
+                'store_email' => $request->store_email,
+                'description' => $request->description,
+                'logo' => $newFileName,
+                'rating' => 0
+            ]);
+
+            if ($insert) {
+                $request->session()->flash('message', 'Add Store Successful');
+                return redirect('/store/create');
+            } else {
+                echo "Data save failed!";
+            }
+        }
     }
 
     /**

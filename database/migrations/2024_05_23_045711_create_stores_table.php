@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('store_name');
             $table->string('store_email');
             $table->text('description');
+            $table->string('logo', 255);
             $table->float('rating');
             $table->timestamps();
         });
