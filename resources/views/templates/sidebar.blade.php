@@ -11,10 +11,10 @@
         </div>
         <ul>
             <li class="mb-3">
-                <a href="#">Dashboard</a>
+                <a href="/store">Dashboard</a>
             </li>
             <li class="mb-3">
-                <a href="#">Items</a>
+                <a href="/product">Products</a>
             </li>
             <li class="mb-3">
                 <a href="#">Transactions</a>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
@@ -84,6 +85,10 @@ Route::get('/', function () {
     ]);
 });
 
+// Store routes
 Route::get('/store', [StoreController::class, 'index']);
 Route::get('/store/create', [StoreController::class, 'create']);
 Route::post('/store/add', [StoreController::class, 'add']);
+
+// Product routes
+Route::get('/product', [ProductController::class, 'index']);
