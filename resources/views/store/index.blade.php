@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="d-flex mt-5">
-                <div class="col-10 pe-3">
+                <div class="col-11 pe-3">
                     <div class="d-flex justify-content-between">
                         <h5>Transactions</h5>
                         <a href="#">All Transactions</a>
@@ -43,16 +43,19 @@
                                 <img src="{{ asset('img/book-covers/' . $transaction['cover']) }}" alt="product-cover">
                                 <div role="description" class="ms-2 mt-1">
                                     <strong>{{ $transaction['title'] }}</strong>
-                                    <strong class="d-block {{ $color }}">
-                                        {{ $transaction['status'] }}
-                                    </strong>
+                                    <small class="d-block text-secondary">
+                                        Transaction ID: {{ $transaction['transaction_id'] }}
+                                    </small>
                                 </div>
                             </div>
                             <div class="col-5 d-flex flex-column align-items-end">
-                                <div class="mb-3">
+                                <div class="mb-4">
                                     <small class="text-secondary">Payment: </small>
-                                    <strong class="d-block mt-0 index-payment">
+                                    <strong class="d-block mt-0">
                                         Rp {{ $transaction['payment'] }}
+                                    </strong>
+                                    <strong class="d-block mt-2 {{ $color }}">
+                                        {{ $transaction['status'] }}
                                     </strong>
                                 </div>
                             </div>
