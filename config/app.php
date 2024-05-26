@@ -58,6 +58,8 @@ return [
 
     'asset_url' => env('ASSET_URL', 'http://localhost/ecommerce/resources/'),
 
+    'public_url' => env('PUBLIC_FOLDER_ASSET', 'http://localhost/ecommerce/public/storage/'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

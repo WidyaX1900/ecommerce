@@ -15,7 +15,41 @@ class StoreController extends Controller
      */
     public function index()
     {
-        //
+        $transactions = [
+            [
+                'cover' => '100-startup.webp',
+                'title' => 'The $100 Startup',
+                'status' => 'SUCCESS',
+                'payment' => '75.000'
+            ],
+            [
+                'cover' => 'bodo-amat.jpeg',
+                'title' => 'Sebuah Seni Untuk Bersikap Bodo Amat',
+                'status' => 'PENDING',
+                'payment' => '55.000'
+            ],
+            [
+                'cover' => 'rich-dad.jpg',
+                'title' => 'Rich Dad Poor Dad',
+                'status' => 'FAILED',
+                'payment' => '65.000'
+            ],
+            [
+                'cover' => 'business.jpg',
+                'title' => 'Win Win At Business',
+                'status' => 'CANCEL',
+                'payment' => '75.000'
+            ],
+            [
+                'cover' => 'filosofi-teras.jpg',
+                'title' => 'Filosofi Teras',
+                'status' => 'EXPIRED',
+                'payment' => '75.000'
+            ],
+        ];
+        return view('store.index', [
+            'transactions' => $transactions
+        ]);
     }
 
     /**
@@ -25,6 +59,7 @@ class StoreController extends Controller
      */
     public function create()
     {
+
         return view('store.create');
     }
 
@@ -77,7 +112,6 @@ class StoreController extends Controller
      */
     public function show(Store $store)
     {
-        //
     }
 
     /**

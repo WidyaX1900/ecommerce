@@ -12,6 +12,8 @@
 
 <body>
     @yield('navbar')
+    @yield('sidebar')
+    @yield('admin')
     @yield('content')
     @yield('footer')
     @vite('resources/js/script.js')
