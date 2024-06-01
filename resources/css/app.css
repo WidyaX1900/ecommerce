@@ -220,6 +220,14 @@ footer {
     object-position: center;
     border-radius: 50%;
 }
+
+.subscriber-list img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
 /* ========================================================================= */
 /* ADMIN CONTENT                                                             */
 /* ========================================================================= */

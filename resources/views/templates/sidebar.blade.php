@@ -20,7 +20,7 @@
                 <a href="/transaction">Transactions</a>
             </li>
             <li class="mb-3">
-                <a href="#">Subscribers</a>
+                <a href="/subscriber">Subscribers</a>
             </li>
         </ul>
     </div>

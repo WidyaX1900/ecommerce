@@ -16,7 +16,28 @@ class SubscriberController extends Controller
      */
     public function index()
     {
-        //
+        $subscribers = [
+            [
+                'name' => 'Thalor Ravenshadow',
+                'email' => str_replace(' ', '', strtolower('Thalor Ravenshadow')) . '@gmail.com',
+            ],
+            [
+                'name' => 'Kaelith Stormrider',
+                'email' => str_replace(' ', '', strtolower('Kaelith Stormrider')) . '@gmail.com',
+            ],
+            [
+                'name' => 'Seraphina Fireheart',
+                'email' => str_replace(' ', '', strtolower('Seraphina Fireheart')) . '@gmail.com',
+            ],
+            [
+                'name' => 'Aeliana Swiftwind',
+                'email' => str_replace(' ', '', strtolower('Aeliana Swiftwind')) . '@gmail.com',
+            ]
+        ];
+
+        return view('store.subscriber', [
+            'subscribers' => $subscribers
+        ]);
     }
 
     /**

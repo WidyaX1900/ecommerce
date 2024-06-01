@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
@@ -96,3 +97,6 @@ Route::get('/product', [ProductController::class, 'index']);
 
 // Transaction routes
 Route::get('/transaction', [TransactionController::class, 'index']);
+
+// Subscriber routes
+Route::get('/subscriber', [SubscriberController::class, 'index']);
