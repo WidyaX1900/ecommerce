@@ -98,6 +98,7 @@ Route::get('/product/detail', [ProductController::class, 'show']);
 
 // Transaction routes
 Route::get('/transaction', [TransactionController::class, 'index']);
+Route::get('/transaction/detail', [TransactionController::class, 'show']);
 
 // Subscriber routes
 Route::get('/subscriber', [SubscriberController::class, 'index']);

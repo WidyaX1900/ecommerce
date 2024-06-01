@@ -10,7 +10,7 @@
                 <tr>
                     <th>No</th>
                     <th>Transaction ID</th>
-                    <th>Payment</th>
+                    <th>Amount</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -37,7 +37,7 @@
                             {{ $transaction['status'] }}
                         </td>
                         <td>
-                            <a href="#" class="btn btn-sm btn-primary me-2">
+                            <a href="/transaction/detail" class="btn btn-sm btn-primary me-2">
                                 See Detail
                             </a>
                             <button type="button" class="btn btn-sm btn-danger">

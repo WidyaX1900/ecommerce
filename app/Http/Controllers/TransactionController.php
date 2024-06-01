@@ -85,7 +85,42 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction)
     {
-        //
+        $orders = [
+            [
+                'cover' => '100-startup.webp',
+                'title' => 'The $100 Startup',
+                'qty' => 3,
+                'amount' => 50000 * 3
+            ],
+            [
+                'cover' => 'bodo-amat.jpeg',
+                'title' => 'Sebuah Seni Untuk Bersikap Bodo Amat',
+                'qty' => 2,
+                'amount' => 25000 * 3
+            ],
+            [
+                'cover' => 'business.jpg',
+                'title' => 'Win Win At Business',
+                'qty' => 1,
+                'amount' => 100000
+            ],
+            [
+                'cover' => 'filosofi-teras.jpg',
+                'title' => 'Filosofi Teras',
+                'qty' => 4,
+                'amount' => 50000 * 4
+            ],
+        ];
+        $totalCost = [];
+
+        foreach ($orders as $order) {
+            $totalCost[] = $order['amount'];
+        }
+
+        return view('store.transaction-detail', [
+            'orders' => $orders,
+            'totalCost' => number_format(array_sum($totalCost) / 1000, 3, '.', '')
+        ]);
     }
 
     /**
