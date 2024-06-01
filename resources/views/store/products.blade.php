@@ -29,7 +29,7 @@
                         </td>
                         <td>{{ $product['title'] }}</td>
                         <td>
-                            <a href="#" class="btn btn-sm btn-primary me-2">
+                            <a href="/product/detail" class="btn btn-sm btn-primary me-2">
                                 See Detail
                             </a>
                             <a href="#" class="btn btn-sm btn-warning me-2">

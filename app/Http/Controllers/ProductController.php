@@ -72,7 +72,35 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $reviews = [
+            [
+                'buyer_name' => 'Thalor Ravenshadow',
+                'date' => time(),
+                'rate' => 5,
+                'comment' => 'A compelling story that kept me hooked from beginning to end.'
+            ],
+            [
+                'buyer_name' => 'Kaelith Stormrider',
+                'date' => time(),
+                'rate' => 5,
+                'comment' => 'Beautifully written with rich, engaging characters.'
+            ],
+            [
+                'buyer_name' => 'Seraphina Fireheart',
+                'date' => time(),
+                'rate' => 5,
+                'comment' => 'I couldn\'t put this book down - an absolute page-turner.'
+            ],
+            [
+                'buyer_name' => 'Aeliana Swiftwind',
+                'date' => time(),
+                'rate' => 5,
+                'comment' => 'This product exceeded my expectations in every way. Incredible quality and value for the price. I\'ve never been more satisfied with a purchase. Highly recommend this product to anyone! Five stars - will definitely buy again.'
+            ],
+        ];
+        return view('store.product-detail', [
+            'reviews' => $reviews
+        ]);
     }
 
     /**

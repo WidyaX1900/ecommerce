@@ -94,6 +94,7 @@ Route::post('/store/add', [StoreController::class, 'add']);
 
 // Product routes
 Route::get('/product', [ProductController::class, 'index']);
+Route::get('/product/detail', [ProductController::class, 'show']);
 
 // Transaction routes
 Route::get('/transaction', [TransactionController::class, 'index']);
