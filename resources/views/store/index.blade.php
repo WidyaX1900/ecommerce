@@ -23,7 +23,7 @@
                 <div class="col-11 pe-3">
                     <div class="d-flex justify-content-between">
                         <h5>Transactions</h5>
-                        <a href="#">All Transactions</a>
+                        <a href="/transaction">All Transactions</a>
                     </div>
                     @foreach ($transactions as $transaction)
                         @php
@@ -90,7 +90,7 @@
                             </span>
                         </div>
                         <div class="text-center mb-3">
-                            <a href="#">See All Subscribers</a>
+                            <a href="/subscriber">See All Subscribers</a>
                         </div>
                     </div>
                 </div>
