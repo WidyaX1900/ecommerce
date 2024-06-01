@@ -10,8 +10,6 @@
                 <tr>
                     <th>No</th>
                     <th>Transaction ID</th>
-                    <th>Cover</th>
-                    <th>Product Name</th>
                     <th>Payment</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -31,11 +29,7 @@
                     @endphp
                     <tr class="index-transaction">
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $transaction['transaction_id'] }}</td>
-                        <td>
-                            <img src="{{ asset('img/book-covers/' . $transaction['cover']) }}" alt="product-cover">
-                        </td>
-                        <td>{{ $transaction['title'] }}</td>
+                        <td>#{{ $transaction['transaction_id'] }}</td>
                         <td>
                             Rp {{ number_format($transaction['payment'] / 1000, 3, '.', '') }}
                         </td>

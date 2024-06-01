@@ -40,11 +40,12 @@
                         @endphp
                         <div class="row bg-white border rounded index-transaction p-2 mb-4 ms-1">
                             <div class="col-7 d-flex">
-                                <img src="{{ asset('img/book-covers/' . $transaction['cover']) }}" alt="product-cover">
                                 <div role="description" class="ms-2 mt-1">
-                                    <strong>{{ $transaction['title'] }}</strong>
-                                    <small class="d-block text-secondary">
-                                        Transaction ID: {{ $transaction['transaction_id'] }}
+                                    <strong>
+                                        Order #{{ $transaction['transaction_id'] }}
+                                    </strong>
+                                    <small class="text-secondary d-block">
+                                        {{ date('d M Y', time()) }}
                                     </small>
                                 </div>
                             </div>
