@@ -153,4 +153,16 @@ class StoreController extends Controller
     {
         //
     }
+
+    public function my_store(Request $request)
+    {
+        $user = $request->session()->get('user');
+        $stores = Store::where('owner_id', $user['userId'])
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('store.list', [
+            'stores' => $stores
+        ]);
+    }
 }
