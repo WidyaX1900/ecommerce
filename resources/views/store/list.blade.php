@@ -16,10 +16,10 @@
                         <img src="{{ config('app.public_url') }}storeLogos/{{ $store->logo }}" alt="book-cover"
                             class="store-logo mx-auto my-3">
                         <div class="card-body">
-                            <h5 class="card-title mb-3">
+                            <h5 class="card-title">
                                 {{ $store->store_name }}
                             </h5>
-                            <p>
+                            <p class="mb-4">
                                 {{ $store->description }}
                             </p>
                             <a href="/store/{{ $store->uuid }}" class="btn btn-primary d-block col-6">
