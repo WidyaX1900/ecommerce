@@ -55,11 +55,24 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($attempt)) {
+            $user = User::where('email', $request->email)
+                ->get()[0];
+
+            $request->session()->put('user', [
+                'userId' => $user->uuid,
+                'role' => $user->role_id
+            ]);
             return redirect('/');
         } else {
             return back()->withErrors([
                 'password' => 'Wrong password!'
             ])->onlyInput('password');
         }
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+        return redirect('/');
     }
 }
