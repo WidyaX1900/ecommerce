@@ -83,6 +83,7 @@ class StoreController extends Controller
             'storeLogo' => 'required|file|max:2048'
         ]);
 
+        $user = $request->session()->get('user');
         $file = $request->file('storeLogo');
 
         if ($file != null) {
@@ -92,7 +93,7 @@ class StoreController extends Controller
 
             $insert = Store::create([
                 'uuid' => rand(),
-                'owner' => 'admin',
+                'owner_id' => $user['userId'],
                 'store_name' => $request->store_name,
                 'store_email' => $request->store_email,
                 'description' => $request->description,
@@ -101,7 +102,7 @@ class StoreController extends Controller
             ]);
 
             if ($insert) {
-                $request->session()->flash('message', 'Add Store Successful');
+                $request->session()->flash('message', 'Store successfully created');
                 return redirect('/store/create');
             } else {
                 echo "Data save failed!";

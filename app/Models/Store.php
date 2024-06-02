@@ -10,7 +10,7 @@ class Store extends Model
     use HasFactory;
     protected $fillable = [
         'uuid',
-        'owner',
+        'owner_id',
         'store_name',
         'store_email',
         'description',
