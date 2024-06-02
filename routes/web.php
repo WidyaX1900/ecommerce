@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\SubscriberController;
@@ -102,3 +103,7 @@ Route::get('/transaction/detail', [TransactionController::class, 'show']);
 
 // Subscriber routes
 Route::get('/subscriber', [SubscriberController::class, 'index']);
+
+// Auth routes
+Route::get('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'register']);
