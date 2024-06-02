@@ -25,6 +25,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
 
         .form-box {
@@ -45,6 +46,11 @@
 </head>
 
 <body>
+    @if (session('message'))
+        <div id="flashAlert" class="col-6 text-center alert alert-success mx-auto flash-alert" role="alert">
+            {{ session('message') }}
+        </div>
+    @endif
     <div class="form-box border rounded">
         <div class="text-center mb-4">
             <img src="{{ asset('img/logo-black.png') }}" alt="brand-logo">
@@ -52,14 +58,27 @@
                 Log in to your account
             </h5>
         </div>
-        <form action="" method="post" class="px-4 mb-5">
+        <form action="/login" method="post" class="px-4 mb-5">
             @csrf
             <div class="mb-4">
                 <div class="mb-3">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="E-mail"
+                        value="{{ old('email') }}">
+                    @error('email')
+                        <small class="text-danger fst-italic">
+                            <i class="fa-solid fa-circle-exclamation me-1"></i>
+                            {{ $message }}
+                        </small>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    @error('password')
+                        <small class="text-danger fst-italic">
+                            <i class="fa-solid fa-circle-exclamation me-1"></i>
+                            {{ $message }}
+                        </small>
+                    @enderror
                 </div>
             </div>
             <button class="d-block btn btn-black w-100 py-2">Login</button>
@@ -69,6 +88,14 @@
             <a href="/register" class="text-dark fw-bold">Create Account</a>
         </div>
     </div>
+
+    <script>
+        const flashAlert = document.getElementById("flashAlert");
+
+        setTimeout(() => {
+            flashAlert.remove();
+        }, 4000);
+    </script>
 </body>
 
 </html>

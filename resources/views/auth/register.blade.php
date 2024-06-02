@@ -52,18 +52,37 @@
                 Create an account
             </h5>
         </div>
-        <form action="" method="post" class="px-4 mb-5">
+        <form action="/register" method="post" class="px-4 mb-5">
             @csrf
             <div class="mb-4">
                 <div class="mb-3">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="E-mail"
+                        value="{{ old('email') }}">
+                    @error('email')
+                        <small class="text-danger fst-italic">
+                            <i class="fa-solid fa-circle-exclamation me-1"></i>
+                            {{ $message }}
+                        </small>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    @error('password')
+                        <small class="text-danger fst-italic">
+                            <i class="fa-solid fa-circle-exclamation me-1"></i>
+                            {{ $message }}
+                        </small>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <input type="password" class="form-control" id="confirm" name="confirm"
                         placeholder="Confirm Password">
+                    @error('confirm')
+                        <small class="text-danger fst-italic">
+                            <i class="fa-solid fa-circle-exclamation me-1"></i>
+                            {{ $message }}
+                        </small>
+                    @enderror
                 </div>
             </div>
             <button class="d-block btn btn-black w-100 py-2">Register</button>
