@@ -46,7 +46,7 @@
 
 <body>
     <div class="form-box border rounded">
-        <div class="text-center mb-5">
+        <div class="text-center mb-4">
             <img src="{{ asset('img/logo-black.png') }}" alt="brand-logo">
             <h5 class="text-center mt-4">
                 Log in to your account
