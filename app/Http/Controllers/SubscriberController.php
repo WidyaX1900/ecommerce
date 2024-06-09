@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Subscriber;
 use App\Http\Requests\StoreSubscriberRequest;
 use App\Http\Requests\UpdateSubscriberRequest;
+use App\Models\Store;
 use Illuminate\Http\Request;
 
 class SubscriberController extends Controller
@@ -14,8 +15,11 @@ class SubscriberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $storeId = $request->session()->get('storeId');
+        $store = Store::where('uuid', $storeId)->get();
+
         $subscribers = [
             [
                 'name' => 'Thalor Ravenshadow',
@@ -36,6 +40,7 @@ class SubscriberController extends Controller
         ];
 
         return view('store.subscriber', [
+            'store' => $store[0],
             'subscribers' => $subscribers
         ]);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Store;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
@@ -12,8 +13,11 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $storeId = $request->session()->get('storeId');
+        $store = Store::where('uuid', $storeId)->get();
+
         $transactions = [
             [
                 'transaction_id' => rand(),
@@ -52,6 +56,7 @@ class TransactionController extends Controller
             ],
         ];
         return view('store.transaction', [
+            'store' => $store[0],
             'transactions' => $transactions
         ]);
     }

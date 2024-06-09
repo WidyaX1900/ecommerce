@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Store;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,8 +15,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $storeId = $request->session()->get('storeId');
+        $store = Store::where('uuid', $storeId)->get();
+
         $products = [
             [
                 'product_id' => rand(),
@@ -39,6 +43,7 @@ class ProductController extends Controller
             ]
         ];
         return view('store.products', [
+            'store' => $store[0],
             'products' => $products
         ]);
     }

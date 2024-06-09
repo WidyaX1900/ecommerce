@@ -13,13 +13,15 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id = '')
+    public function index($id = '', Request $request)
     {
         if ($id == '') {
             return redirect('/store/my-store');
         }
 
         $store = Store::where('uuid', $id)->get();
+
+        $request->session()->put('storeId', $store[0]->uuid);
         $transactions = [
             [
                 'transaction_id' => rand(),

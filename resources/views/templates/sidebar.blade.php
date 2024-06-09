@@ -12,7 +12,7 @@
         </div>
         <ul>
             <li class="mb-3">
-                <a href="/store">Dashboard</a>
+                <a href="/store/detail/{{ $store->uuid }}">Dashboard</a>
             </li>
             <li class="mb-3">
                 <a href="/product">Products</a>
