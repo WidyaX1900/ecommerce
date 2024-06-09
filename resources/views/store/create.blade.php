@@ -2,11 +2,6 @@
 @extends('templates.navbar');
 @section('content')
     <section class="container mt-5 pt-5">
-        @if (session('message'))
-            <div id="flashAlert" class="col-6 text-center alert alert-success mx-auto flash-alert" role="alert">
-                {{ session('message') }}
-            </div>
-        @endif
         <div class="row">
             <div class="col-6">
                 <h4 class="mb-3">Create your own store</h4>
@@ -69,12 +64,4 @@
             </div>
         </div>
     </section>
-
-    <script>
-        const flashAlert = document.getElementById("flashAlert");
-
-        setTimeout(() => {
-            flashAlert.remove();
-        }, 4000);
-    </script>
 @endsection

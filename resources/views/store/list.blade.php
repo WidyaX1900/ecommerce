@@ -2,6 +2,11 @@
 @extends('templates.navbar')
 @section('content')
     <div class="container my-store-content">
+        @if (session('message'))
+            <div id="flashAlert" class="col-6 text-center alert alert-success mx-auto flash-alert" role="alert">
+                {{ session('message') }}
+            </div>
+        @endif
         <div class="d-flex justify-content-between align-items-center">
             <h2>My Stores</h2>
             <a href="/store/create" class="btn btn-black text-center px-5 py-3">

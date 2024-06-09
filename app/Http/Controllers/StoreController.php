@@ -103,7 +103,7 @@ class StoreController extends Controller
 
             if ($insert) {
                 $request->session()->flash('message', 'Store successfully created');
-                return redirect('/store/create');
+                return redirect('/store/my-store');
             } else {
                 echo "Data save failed!";
             }

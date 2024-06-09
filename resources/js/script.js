@@ -15,3 +15,10 @@ $(function () {
         });
     });
 });
+
+if (document.getElementById("flashAlert")) {
+    const flashAlert = document.getElementById("flashAlert");
+    setTimeout(() => {
+        flashAlert.remove();
+    }, 4000);
+}
