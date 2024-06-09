@@ -27,7 +27,7 @@
                             <p class="mb-4">
                                 {{ $store->description }}
                             </p>
-                            <a href="/store/{{ $store->uuid }}" class="btn btn-primary d-block col-6">
+                            <a href="/store/detail/{{ $store->uuid }}" class="btn btn-primary d-block col-6">
                                 <i class="fa-solid fa-eye me-1"></i>
                                 View
                             </a>

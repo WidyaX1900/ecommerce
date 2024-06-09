@@ -13,8 +13,13 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id = '')
     {
+        if ($id == '') {
+            return redirect('/store/my-store');
+        }
+
+        $store = Store::where('uuid', $id)->get();
         $transactions = [
             [
                 'transaction_id' => rand(),
@@ -53,6 +58,7 @@ class StoreController extends Controller
             ],
         ];
         return view('store.index', [
+            'store' => $store[0],
             'transactions' => $transactions
         ]);
     }

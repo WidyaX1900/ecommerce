@@ -154,7 +154,7 @@ footer {
 .sidebar {
     height: 100vh;
     background: var(--main-color);
-    padding-top: 80px;
+    padding-top: 100px;
     color: rgb(241, 241, 241);
     position: fixed;
 }
@@ -197,7 +197,7 @@ footer {
 /* ADMIN CONTENT                                                             */
 /* ========================================================================= */
 .admin-content {
-    padding-top: 85px;
+    padding-top: 105px;
     padding-left: 350px;
 }
 
