@@ -93,6 +93,7 @@ Route::get('/store/detail/{id}', [StoreController::class, 'index']);
 Route::get('/store/create', [StoreController::class, 'create']);
 Route::post('/store/add', [StoreController::class, 'add']);
 Route::get('/store/my-store', [StoreController::class, 'my_store']);
+Route::get('/store/edit-store/{id}', [StoreController::class, 'edit']);
 
 // Product routes
 Route::get('/product', [ProductController::class, 'index']);

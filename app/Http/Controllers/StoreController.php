@@ -134,9 +134,16 @@ class StoreController extends Controller
      * @param  \App\Models\Store  $store
      * @return \Illuminate\Http\Response
      */
-    public function edit(Store $store)
+    public function edit(Store $store, $id = '')
     {
-        //
+        if ($id == '') {
+            return redirect('/store/my-store');
+        }
+
+        $store = $store->where('uuid', $id)->get()[0];
+        return view('store.edit', [
+            'store' => $store
+        ]);
     }
 
     /**
