@@ -5,11 +5,15 @@
     @extends('templates.sidebar')
     @section('admin')
         <div class="col-12 admin-content overflow-x-hidden">
+            @php
+                echo session('message');
+            @endphp
             <div class="row">
                 <div class="col-6">
                     <h4 class="mb-3">Edit your own store</h4>
-                    <form action="/store/add" method="POST" enctype="multipart/form-data">
+                    <form action="/store/update/{{ $store->uuid }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <input type="file" name="storeLogo" id="storeLogo" hidden>
                         <div class="mb-3">
                             <label for="name" class="form-label">Store Name</label>
@@ -45,8 +49,8 @@
                             @enderror
                         </div>
                         <button type="submit" class="btn btn-black py-3 px-4">
-                            <i class="fa-solid fa-circle-plus me-1"></i>
-                            Create Store
+                            <i class="fa-solid fa-upload me-1"></i>
+                            Save Change
                         </button>
                     </form>
                 </div>

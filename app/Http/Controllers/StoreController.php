@@ -153,9 +153,83 @@ class StoreController extends Controller
      * @param  \App\Models\Store  $store
      * @return \Illuminate\Http\Response
      */
-    public function update(Store $store)
+    public function update(Request $request, $uuid = '')
     {
-        //
+        $request->validate([
+            'store_name' => 'required',
+            'store_email' => 'required|email:rfc,dns',
+            'description' => 'required'
+        ]);
+        $oldData = Store::where('uuid', $uuid)->get()[0];
+        $file = $request->file('storeLogo');
+
+        // Check if input value is as same as the data from the database
+        if (
+            $request->store_name == $oldData->store_name &&
+            $request->store_email == $oldData->store_email &&
+            $request->description == $oldData->description &&
+            $file == null
+        ) {
+            $request->session()->flash('message', '
+                <div id="flashAlert" class="col-6 text-center alert alert-info mx-auto flash-alert" role="alert">
+                    <i class="fa-solid fa-circle-exclamation me-1"></i>
+                    No data has been changed!
+                </div>
+            ');
+            return back();
+        } else {
+            $similiar = $this->_check_similiratity($uuid, $request->store_name, $request->store_email);
+
+            switch ($similiar) {
+                case 'name':
+                    return back()->withErrors(
+                        ['store_name' => 'The store name already exist!']
+                    );
+                    break;
+
+                case 'email':
+                    return back()->withErrors(
+                        ['store_email' => 'The store email already exist!']
+                    );
+                    break;
+
+                case 'both':
+                    return back()->withErrors(
+                        [
+                            'store_name' => 'The store name already exist!',
+                            'store_email' => 'The store email already exist!'
+                        ]
+                    );
+                    break;
+
+                default:
+                    if ($file != null) {
+                        $extension = $file->getClientOriginalExtension();
+                        $fileName = 'ABStore' . rand() . '.' . $extension;
+                        Storage::putFileAs('storeLogos', $file, $fileName);
+                    } else {
+                        $fileName = $oldData->logo;
+                    }
+
+                    $update = Store::where('uuid', $uuid)
+                        ->update([
+                            'store_name' => $request->store_name,
+                            'store_email' => $request->store_email,
+                            'description' => $request->description,
+                            'logo' => $fileName
+                        ]);
+
+                    if ($update) {
+                        $request->session()->flash('message', '
+                            <div id="flashAlert" class="col-6 text-center alert alert-success mx-auto flash-alert" role="alert">
+                                <i class="fa-solid fa-circle-check me-1"></i>
+                                Store update successfull
+                            </div>
+                        ');
+                        return back();
+                    }
+            }
+        }
     }
 
     /**
@@ -179,5 +253,31 @@ class StoreController extends Controller
         return view('store.list', [
             'stores' => $stores
         ]);
+    }
+
+    private function _check_similiratity($uuid, $store_name, $store_email)
+    {
+        $errors = '';
+        $allStores = Store::where('uuid', '!=', $uuid)->get();
+        foreach ($allStores as $allstore) {
+            if (
+                $store_name == $allstore->store_name &&
+                $store_email != $allstore->store_email
+            ) {
+                $errors = 'name';
+            } else if (
+                $store_email == $allstore->store_email &&
+                $store_name != $allstore->store_name
+            ) {
+                $errors = 'email';
+            } else if (
+                $store_email == $allstore->store_email &&
+                $store_name == $allstore->store_name
+            ) {
+                $errors = 'both';
+            }
+        }
+
+        return $errors;
     }
 }

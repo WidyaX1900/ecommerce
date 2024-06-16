@@ -2,7 +2,7 @@
     <div class="col-3 sidebar">
         <div class="text-center mb-4">
             <img src="{{ config('app.public_url') . 'storeLogos/' . $store->logo }}" alt="store-logo" class="rounded-circle">
-            <h5 class="my-3">
+            <h5 class="my-3 col-8 mx-auto">
                 {{ $store->store_name }}
             </h5>
             <a href="/store/edit-store/{{ $store->uuid }}" class="btn btn-outline-white btn-sm py-2 px-4">
