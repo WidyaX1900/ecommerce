@@ -178,7 +178,7 @@ class StoreController extends Controller
             ');
             return back();
         } else {
-            $similiar = $this->_check_similiratity($uuid, $request->store_name, $request->store_email);
+            $similiar = $this->_check_similarity($uuid, $request->store_name, $request->store_email);
 
             switch ($similiar) {
                 case 'name':
@@ -255,7 +255,7 @@ class StoreController extends Controller
         ]);
     }
 
-    private function _check_similiratity($uuid, $store_name, $store_email)
+    private function _check_similarity($uuid, $store_name, $store_email)
     {
         $errors = '';
         $allStores = Store::where('uuid', '!=', $uuid)->get();
