@@ -324,6 +324,55 @@ footer {
     font-style: italic;
     font-size: 1.2rem;
 }
+
+.image-preview {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    margin-bottom: 8px;
+}
+
+.image-preview .img-vertical {
+    width: 250px;
+    height: 300px;
+}
+
+.image-preview .img-horizontal {
+    width: 450px;
+    height: 300px;
+}
+
+.image-list {
+    display: flex;
+}
+
+.image-list .list-box {
+    width: 60px;
+    height: 50px;
+    margin-right: 15px;
+    cursor: pointer;
+    padding: 3px;
+    position: relative;
+}
+
+.image-list .list-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-list .list-box .remove-img-btn {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: -7px;
+    right: -15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 11px;
+}
 /* ========================================================================= */
 /* ADD PRODUCT                                                               */
 /* ========================================================================= */

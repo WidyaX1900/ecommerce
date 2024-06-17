@@ -14,7 +14,7 @@
                     <form action="" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="productPhotos" id="productPhotos">
-                        <input type="file" id="productFile" hidden accept="image/*">
+                        <input type="file" id="productFile" hidden accept="image/*" multiple>
                         <div class="mb-3">
                             <label for="name" class="form-label">Product Name</label>
                             <input type="text" class="form-control" name="name" id="name"
@@ -58,7 +58,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-black py-3 px-4">
+                        <button type="button" class="btn btn-black py-3 px-4" data-bs-toggle="modal"
+                            data-bs-target="#previewModal">
                             <i class="fa-solid fa-circle-plus me-1"></i>
                             Add Product
                         </button>
@@ -67,4 +68,30 @@
             </div>
         </div>
     @endsection
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="previewModal" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="image-preview">
+                    <img id="imagePreview" src="{{ asset('img/book-covers/bodo-amat.jpeg') }}" alt="product-photos"
+                        class="img-vertical">
+                </div>
+                <div class="image-list">
+                    <div class="list-box">
+                        <img src="{{ asset('img/book-covers/bodo-amat.jpeg') }}" alt="cover-list" class="img-fluid">
+                        <button type="button" class="btn btn-danger remove-img-btn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
