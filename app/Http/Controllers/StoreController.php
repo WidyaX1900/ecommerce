@@ -178,9 +178,9 @@ class StoreController extends Controller
             ');
             return back();
         } else {
-            $similiar = $this->_check_similarity($uuid, $request->store_name, $request->store_email);
+            $similar = $this->_check_similarity($uuid, $request->store_name, $request->store_email);
 
-            switch ($similiar) {
+            switch ($similar) {
                 case 'name':
                     return back()->withErrors(
                         ['store_name' => 'The store name already exist!']
