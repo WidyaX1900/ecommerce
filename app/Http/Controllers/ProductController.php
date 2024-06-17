@@ -53,9 +53,14 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $storeId = $request->session()->get('storeId');
+        $store = Store::where('uuid', $storeId)->get()[0];
+
+        return view('product.create', [
+            'store' => $store
+        ]);
     }
 
     /**

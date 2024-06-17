@@ -283,3 +283,47 @@ footer {
 /* ========================================================================= */
 /* STORE EDIT                                                                */
 /* ========================================================================= */
+
+/* ========================================================================= */
+/* ADD PRODUCT                                                               */
+/* ========================================================================= */
+.product-preview {
+    width: 250px;
+    height: 300px;
+}
+
+.product-photo-uploader {
+    width: 100%;
+    height: 300px;
+    background: rgb(224, 224, 224);
+    border-radius: 8px;
+    border: 3px dashed rgb(130, 130, 130);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-photo-uploader .upload-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(130, 130, 130);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.product-photo-uploader .upload-icon:hover {
+    color: rgb(35, 35, 35);
+}
+
+.product-photo-uploader .upload-icon i {
+    font-size: 6rem;
+}
+
+.product-photo-uploader .upload-icon strong {
+    font-style: italic;
+    font-size: 1.2rem;
+}
+/* ========================================================================= */
+/* ADD PRODUCT                                                               */
+/* ========================================================================= */

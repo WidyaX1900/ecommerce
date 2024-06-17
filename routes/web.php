@@ -99,6 +99,7 @@ Route::put('/store/update/{id}', [StoreController::class, 'update']);
 // Product routes
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/detail', [ProductController::class, 'show']);
+Route::get('/product/create', [ProductController::class, 'create']);
 
 // Transaction routes
 Route::get('/transaction', [TransactionController::class, 'index']);

@@ -7,7 +7,7 @@
         <div class="col-12 admin-content">
             <div class="d-flex justify-content-between align-items-center">
                 <h5>Products</h5>
-                <a href="#" class="col-3 btn btn-black d-block rounded me-5 py-2">
+                <a href="/product/create" class="col-3 btn btn-black d-block rounded me-5 py-2">
                     <i class="fa-solid fa-circle-plus me-1"></i>
                     New Product
                 </a>
