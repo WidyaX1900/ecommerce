@@ -55,7 +55,7 @@ class TransactionController extends Controller
                 'payment' => 75000
             ],
         ];
-        return view('store.transaction', [
+        return view('transaction.index', [
             'store' => $store[0],
             'transactions' => $transactions
         ]);
@@ -88,8 +88,10 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function show(Transaction $transaction)
+    public function show(Transaction $transaction, Request $request)
     {
+        $storeId = $request->session()->get('storeId');
+        $store = Store::where('uuid', $storeId)->get()[0];
         $orders = [
             [
                 'cover' => '100-startup.webp',
@@ -122,9 +124,10 @@ class TransactionController extends Controller
             $totalCost[] = $order['amount'];
         }
 
-        return view('store.transaction-detail', [
+        return view('transaction.detail', [
             'orders' => $orders,
-            'totalCost' => number_format(array_sum($totalCost) / 1000, 3, '.', '')
+            'totalCost' => number_format(array_sum($totalCost) / 1000, 3, '.', ''),
+            'store' => $store
         ]);
     }
 

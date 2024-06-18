@@ -39,7 +39,7 @@ class SubscriberController extends Controller
             ]
         ];
 
-        return view('store.subscriber', [
+        return view('subscriber.index', [
             'store' => $store[0],
             'subscribers' => $subscribers
         ]);

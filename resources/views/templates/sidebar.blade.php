@@ -5,7 +5,7 @@
             <h5 class="my-3 col-8 mx-auto">
                 {{ $store->store_name }}
             </h5>
-            <a href="/store/edit-store/{{ $store->uuid }}" class="btn btn-outline-white btn-sm py-2 px-4">
+            <a href="/store/edit/{{ $store->uuid }}" class="btn btn-outline-white btn-sm py-2 px-4">
                 <i class="fa-solid fa-pen me-1"></i>
                 Edit Store
             </a>

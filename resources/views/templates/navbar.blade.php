@@ -17,7 +17,7 @@
                     <i class="fa-solid fa-cart-shopping fs-5"></i>
                     <small class="d-block mt-1">Cart</small>
                 </a>
-                <a href="/store/my-store" class="hover me-5 pt-3 text-center">
+                <a href="/store/list" class="hover me-5 pt-3 text-center">
                     <i class="fa-solid fa-store fs-5"></i>
                     <small class="d-block mt-1">My Store</small>
                 </a>

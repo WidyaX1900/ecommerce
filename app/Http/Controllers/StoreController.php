@@ -13,7 +13,7 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id = '', Request $request)
+    public function detail($id = '', Request $request)
     {
         if ($id == '') {
             return redirect('/store/my-store');
@@ -59,7 +59,7 @@ class StoreController extends Controller
                 'payment' => '75.000'
             ],
         ];
-        return view('store.index', [
+        return view('store.detail', [
             'store' => $store[0],
             'transactions' => $transactions
         ]);
@@ -116,16 +116,6 @@ class StoreController extends Controller
                 echo "Data save failed!";
             }
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Store  $store
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Store $store)
-    {
     }
 
     /**
@@ -243,7 +233,7 @@ class StoreController extends Controller
         //
     }
 
-    public function my_store(Request $request)
+    public function list(Request $request)
     {
         $user = $request->session()->get('user');
         $stores = Store::where('owner_id', $user['userId'])

@@ -89,11 +89,11 @@ Route::get('/', function () {
 });
 
 // Store routes
-Route::get('/store/detail/{id}', [StoreController::class, 'index']);
+Route::get('/store/detail/{id}', [StoreController::class, 'detail']);
 Route::get('/store/create', [StoreController::class, 'create']);
 Route::post('/store/add', [StoreController::class, 'add']);
-Route::get('/store/my-store', [StoreController::class, 'my_store']);
-Route::get('/store/edit-store/{id}', [StoreController::class, 'edit']);
+Route::get('/store/list', [StoreController::class, 'list']);
+Route::get('/store/edit/{id}', [StoreController::class, 'edit']);
 Route::put('/store/update/{id}', [StoreController::class, 'update']);
 
 // Product routes

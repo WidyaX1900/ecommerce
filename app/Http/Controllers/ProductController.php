@@ -42,7 +42,7 @@ class ProductController extends Controller
                 'title' => 'Win Win At Business'
             ]
         ];
-        return view('store.products', [
+        return view('product.index', [
             'store' => $store[0],
             'products' => $products
         ]);
@@ -80,8 +80,10 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Product $product, Request $request)
     {
+        $storeId = $request->session()->get('storeId');
+        $store = Store::where('uuid', $storeId)->get()[0];
         $reviews = [
             [
                 'buyer_name' => 'Thalor Ravenshadow',
@@ -108,8 +110,9 @@ class ProductController extends Controller
                 'comment' => 'This product exceeded my expectations in every way. Incredible quality and value for the price. I\'ve never been more satisfied with a purchase. Highly recommend this product to anyone! Five stars - will definitely buy again.'
             ],
         ];
-        return view('store.product-detail', [
-            'reviews' => $reviews
+        return view('product.detail', [
+            'reviews' => $reviews,
+            'store' => $store
         ]);
     }
 
